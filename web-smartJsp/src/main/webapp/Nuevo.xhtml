@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+	<b:form>
+		<b:panel>
+			<p>
+				<b:label text="Nombre: " />
+				<b:inputText value="#{usuarioBean.usarioBD.nombre}"
+					label="#{usuarioBean.usarioBD.nombre}">
+				</b:inputText>
+				<b:message for="@previous" />
+			</p>
+			<p>
+				<b:label text="Apellido " />
+				<b:inputText value="#{usuarioBean.usarioBD.apellido}"
+					label="#{usuarioBean.usarioBD.apellido}">
+				</b:inputText>
+				<b:message for="@previous" />
+			</p>
+			<p>
+				<b:label text="Telefono: " />
+				<b:inputText value="#{usuarioBean.usarioBD.telefono}"
+					label="#{usuarioBean.usarioBD.telefono}">
+				</b:inputText>
+				<b:message for="@previous" />
+			</p>
+			<p>
+				<b:label text="Email: " />
+				<b:inputText value="#{usuarioBean.usarioBD.email}"
+					label="#{usuarioBean.usarioBD.email}">
+				</b:inputText>
+				<b:message for="@previous" />
+			</p>
+			<p>
+				<b:formGroup>
+					<b:label text="Nacionalidad:  " />
+					<b:selectOneMenu value="#{usuarioBean.usarioBD.nacionalidad}"
+						colMd="2" labelColMd="2">
+						<f:selectItems value="#{usuarioBean.nacionalidades}" var="c"
+							itemValue="#{c}" itemLabel="#{c.nombre}" />
+					</b:selectOneMenu>
+				</b:formGroup>
+			</p>
+			<p>
+				<b:formGroup>
+					<b:label text="Tipo de Documento:   " />
+					<b:selectOneMenu value="#{usuarioBean.usarioBD.documento}"
+						colMd="2" labelColMd="2">
+							<f:selectItems value="#{usuarioBean.documentos}" var="c"
+							itemValue="#{c}" itemLabel="#{c.abreviacion}" />
+					</b:selectOneMenu>
+				</b:formGroup>
+			</p>
+			<p>
+				<b:label text="# identificacion: " />
+				<b:inputText value="#{usuarioBean.usarioBD.identificacion}"
+					label="#{usuarioBean.usarioBD.identificacion}">
+				</b:inputText>
+				<b:message for="@previous" />
+			</p>
+			<p>
+				<b:label text="Estado: " />
+				<b:inputText value="#{usuarioBean.usarioBD.estado}"
+					label="#{usuarioBean.usarioBD.estado}" disabled="true">
+				</b:inputText>
+				<b:message for="@previous" />
+			</p>
+			<p>
+				<b:label text="Fecha Creacion " />
+				<b:inputText value="#{usuarioBean.usarioBD.createAt}"
+					label="#{usuarioBean.usarioBD.createAt}" disabled="true">
+				</b:inputText>
+				<b:message for="@previous" />
+			</p>
+			<p>
+				<b:label text="Observaciones: " />
+				<b:inputText value="#{usuarioBean.usarioBD.observaciones}"
+					label="#{usuarioBean.usarioBD.observaciones}">
+				</b:inputText>
+			</p>
+
+			<b:commandButton value="Guardar" ajax="true" update="@form"
+				action="#{usuarioBean.guardarUsuario()}"></b:commandButton>
+		</b:panel>
+	</b:form>
+
+</h:body>
+</html>

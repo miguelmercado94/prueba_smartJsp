@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<p>Usuarios</p>
+</h:head>
+<h:body>
+	<h:form>
+	<div>
+		<b:panel>
+			<b:dataTable value="#{usuarioBean.listUsuarios}" var="usuario"
+				width="5em">
+				<b:dataTableColumn value="#{usuario.nombre}" />
+				<b:dataTableColumn value="#{usuario.apellido}" />
+				<b:dataTableColumn value="#{usuario.email}" />
+				<b:dataTableColumn value="#{usuario.telefono}" label="Tel" />
+				<b:dataTableColumn value="#{usuario.nacionalidad.nombre}"
+					label="Nacionalidad" />
+				<b:dataTableColumn value="#{usuario.documento.abreviacion}"
+					label="Tipo de Documento" />
+				<b:dataTableColumn value="#{usuario.identificacion}"
+					label="# Documento" />
+				<b:dataTableColumn value="#{usuario.estado}" />
+				<b:dataTableColumn value="#{usuario.observaciones}" />
+				<b:dataTableColumn value="#{usuario.createAt}"
+					label="Fecha de creacion" />
+				<b:dataTableColumn label="">
+					<b:commandButton value="Eliminar" ajax="true" update="@none"
+						look="warning" style="width:80px"
+						action="#{usuarioBean.eliminarUsuario(usuario.id)}" />
+				</b:dataTableColumn>
+				
+				<b:dataTableColumn label="">
+					<b:commandButton value="Actualizar" ajax="true" update="@none"
+						look="info" style="width:80px"
+						action="#{usuarioBean.irActualizar(usuario)}" />
+				</b:dataTableColumn>
+			</b:dataTable>		
+		</b:panel>
+		</div>
+		<div>
+		<b:commandButton value="Nuevo Usuario" ajax="true" update="@none"
+						look="primary" action="#{usuarioBean.irNuevoUsuario()}" />
+		</div>
+	</h:form>
+</h:body>
+</html>
